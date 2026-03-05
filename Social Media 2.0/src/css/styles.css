@@ -1,0 +1,213 @@
+:root {
+  --bg-a: #dcfce7;
+  --bg-b: #dbeafe;
+  --bg-c: #fef3c7;
+  --line-soft: rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", "Avenir Next", "Segoe UI", sans-serif;
+  color: #1f2937;
+  background: #f8fafc;
+}
+
+.shell-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 10% 12%, var(--bg-a), transparent 42%),
+    radial-gradient(circle at 82% 18%, var(--bg-b), transparent 40%),
+    radial-gradient(circle at 46% 88%, var(--bg-c), transparent 44%),
+    linear-gradient(120deg, #f8fafc 0%, #eef2ff 100%);
+}
+
+.glass-card {
+  border: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.86);
+  border-radius: 18px;
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.nav-btn {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #475569;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  border-color: rgba(71, 85, 105, 0.25);
+  color: #0f172a;
+}
+
+.nav-btn--active {
+  border-color: #0f766e;
+  background: rgba(15, 118, 110, 0.1);
+  color: #115e59;
+}
+
+.pill-btn {
+  border: 1px solid rgba(15, 118, 110, 0.35);
+  border-radius: 999px;
+  padding: 0.38rem 0.82rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #134e4a;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(209, 250, 229, 0.85));
+}
+
+.pill-btn:hover {
+  background: linear-gradient(180deg, rgba(240, 253, 250, 1), rgba(167, 243, 208, 0.8));
+}
+
+.post-card {
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+  padding: 1rem;
+  animation: riseIn 240ms ease;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.post-author {
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.post-handle {
+  font-size: 0.76rem;
+  color: #64748b;
+}
+
+.post-content {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  font-size: 0.92rem;
+  color: #1e293b;
+}
+
+.post-actions {
+  margin-top: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.post-btn {
+  border-radius: 999px;
+  border: 1px solid rgba(100, 116, 139, 0.25);
+  background: #fff;
+  color: #475569;
+  padding: 0.32rem 0.66rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.post-btn:hover {
+  border-color: rgba(15, 118, 110, 0.4);
+  color: #0f766e;
+}
+
+.post-btn--liked {
+  border-color: rgba(217, 119, 6, 0.6);
+  color: #b45309;
+  background: rgba(254, 243, 199, 0.7);
+}
+
+.user-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.user-chip {
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.12);
+  color: #115e59;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+}
+
+.toast {
+  border-radius: 12px;
+  border: 1px solid rgba(51, 65, 85, 0.18);
+  background: rgba(15, 23, 42, 0.94);
+  color: white;
+  padding: 0.65rem 0.8rem;
+  font-size: 0.8rem;
+  box-shadow: 0 16px 26px rgba(15, 23, 42, 0.3);
+  animation: riseIn 180ms ease;
+}
+
+.toast--error {
+  border-color: rgba(248, 113, 113, 0.35);
+  background: rgba(127, 29, 29, 0.96);
+}
+
+.toast--success {
+  border-color: rgba(74, 222, 128, 0.3);
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: #e2e8f0;
+  border-radius: 8px;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  animation: sweep 1.2s infinite;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sweep {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 1024px) {
+  #app-view > div {
+    grid-template-columns: 1fr;
+  }
+}
